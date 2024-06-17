@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="dialog">
+  <van-dialog use-slot title="安全验证" show="{{ show }}" confirmButtonText="取消" bind:close="onClose">
+    <view class="cell">
+      <view class="tip">系统已向您绑定的手机号{{maskPhone}}发送短信验证码，输入后系统自动校验</view>
+    </view>
+    <view class="inp-wrap">
+      <view bind:tap="onFocusInp" data-index="{{0}}" class="inp-num {{ focus&&num.length<=1?'active':'' }}">
+        {{num[0]}}
+      </view>
+      <view bind:tap="onFocusInp" data-index="{{1}}" class="inp-num {{ focus&&num.length===2?'active':'' }}">
+        {{num[1]}}
+      </view>
+      <view bind:tap="onFocusInp" data-index="{{2}}" class="inp-num {{ focus&&num.length===3?'active':'' }}">
+        {{num[2]}}
+      </view>
+      <view bind:tap="onFocusInp" data-index="{{3}}" class="inp-num {{ focus&&num.length===4?'active':'' }}">
+        {{num[3]}}
+      </view>
+    </view>
+    <view class="get-btn" bind:tap="onGetSms" wx:if="{{ duration<=0 }}">获取验证码</view>
+    <view class="get-btn" wx:else>重新获取（{{duration}}s）</view>
+    <input
+      value="{{ val }}"
+      bindblur="onInpBlur"
+      bindinput="onInputNum"
+      maxlength="4"
+      focus="{{focus}}"
+      class="inp"
+      type="number"
+    />
+    <!-- <image src="https://img.yzcdn.cn/1.jpg" /> -->
+  </van-dialog>
+</view>

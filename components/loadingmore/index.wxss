@@ -1,0 +1,15 @@
+.loadingmore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingmore-spinner-wrapper {
+  margin-right: 10rpx;
+}
+.loadingmore-hint {
+  font-size: 22rpx;
+  line-height: 1;
+  color: #cccccc;
+  text-align: center;
+  padding: 50rpx 0;
+}

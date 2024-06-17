@@ -1,0 +1,19 @@
+/* subpackages/client/pages/product-sale-list/product-sale-list.wxss */
+@import '/styles/empty.wxss';
+page{
+  background-color: #fafafa;
+}
+.product-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding:16rpx 11rpx;
+}
+.list-item{
+  margin-bottom: 16rpx;
+}
+.special-style{
+  height:574rpx;
+  background-color: #fff;
+}

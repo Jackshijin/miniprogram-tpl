@@ -1,0 +1,16 @@
+.empty-wrapper {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.empty-wrapper .empty-pic {
+  width: 160rpx;
+  height: 160rpx;
+}
+.empty-wrapper .empty-desc {
+  font-size: 24rpx;
+  line-height: 1;
+  color: #999999;
+}

@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<van-popup
+  show="{{ showAuthLogin }}"
+  position="bottom"
+  bind:click-overlay="onClose"
+  custom-class="{{ customClass }}"
+  closeable
+  round
+  bind:close="onClose"
+>
+  <view class="login-modal">
+    <van-button
+      wx:if="{{ userinfo.status<2 || !hasLogin}}"
+      custom-class="btn"
+      block
+      type="primary"
+      open-type="getUserInfo"
+      bindgetuserinfo="onGetUerInfo"
+    >
+      getUserProfile
+    </van-button>
+    <van-button
+      wx:if="{{ userinfo.status>1 }}"
+      custom-class="btn"
+      block
+      type="primary"
+      open-type="getPhoneNumber"
+      bindgetphonenumber="onGetPhone"
+    >
+      getPhoneNumber
+    </van-button>
+  </view>
+</van-popup>

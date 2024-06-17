@@ -1,0 +1,12 @@
+<view class="page">
+  <block wx:if="{{list.length>0}}">
+    <view class="product-list">
+      <product-item-card class="list-item {{pageType==0?'special-style':''}}" item="{{ item }}" wx:for="{{list}}" wx:key="id"></product-item-card>
+    </view>
+    <loadingmore status="{{ currentLoadingMoreStatus }}"></loadingmore>
+  </block>
+  <view wx:else class="empty-wrapper">
+    <image class="empty-pic" src="https://static.chali.tech/pic_empty.svg"></image>
+    <text class="empty-desc">暂无{{title}}</text>
+  </view>
+</view>

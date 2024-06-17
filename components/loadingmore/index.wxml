@@ -1,0 +1,9 @@
+<view class="loadingmore" hidden="{{ status === LOADINGMORE_STATUS.IDLE }}">
+  <van-loading
+    wx:if="{{ status === LOADINGMORE_STATUS.INIT||status === LOADINGMORE_STATUS.DOING }}"
+    custom-class="loadingmore-spinner-wrapper"
+    size="24rpx"
+    type="spinner"
+  ></van-loading>
+  <text class="loadingmore-hint">{{ loadingMoreHint }}</text>
+</view>

@@ -1,0 +1,8 @@
+/* index.wxss */
+@import '/styles/custom-tab-bar.wxss';
+.login-modal {
+  padding: 60rpx 30rpx;
+}
+.btn {
+  margin: 20rpx auto;
+}

@@ -1,0 +1,4 @@
+<view class="empty-wrapper empty-dialog">
+  <image class="empty-pic" src="{{ picSrc }}"></image>
+  <text class="empty-desc">{{ desc }}</text>
+</view>

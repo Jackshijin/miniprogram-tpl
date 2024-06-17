@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "loadingmore": "/components/loadingmore/index",
+    "product-item-card": "/subpackages/client/components/product-item-card/index"
+  },
+  "navigationBarTitleText": ""
+}
