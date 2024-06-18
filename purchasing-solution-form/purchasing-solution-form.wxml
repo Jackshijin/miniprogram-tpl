@@ -1,0 +1,60 @@
+<view class="page">
+  <form>
+    <textarea
+      adjust-position="{{false}}"
+      class="content"
+      placeholder-class="input-placeholder"
+      data-key="content"
+      data-maxlength="500"
+      maxlength="600"
+      bindinput="bindKeyInput"
+      value="{{content}}"
+      placeholder="说一说你的方案"
+    />
+    <view class="cell pic">
+      <view class="cell-heading">
+        <view class="cell-title">本地图片</view>
+        <view class="btn-add" wx:if="{{imageList.length < 5}}">+</view>
+      </view>
+      <view class="cell-value cell-border">
+        <van-uploader
+          show-upload="{{false}}"
+          accept="image"
+          multiple
+          max-count="5"
+          capture="{{['album']}}"
+          file-list="{{ imageList }}"
+          data-key="business"
+          bind:after-read="afterMultiRead"
+          bind:delete="onDelete"
+          style="width: 100%"
+        >
+          <view class="hotarea"></view>
+        </van-uploader>
+      </view>
+    </view>
+    <view class="cell">
+      <view class="cell-heading">
+        <view class="cell-title">微信文件</view>
+        <view class="cell-subtitle">支持从聊天中选择word/pdf等文件</view>
+        <view class="btn-add" bind:tap="addFile" wx:if="{{fileList.length < 3}}">+</view>
+      </view>
+      <view class="cell-value cell-border">
+        <view class="file-list">
+          <upload-file
+            wx:for="{{fileList}}"
+            wx:key="index"
+            filename="{{item.name}}"
+            size="{{item.size}}"
+            data-index="{{index}}"
+            bind:clickClose="delFile"
+          />
+        </view>
+      </view>
+    </view>
+  </form>
+  <view class="footer">
+    <view class="wordcount">{{content.length}}/500</view>
+    <view class="btn-submit" bind:tap="submit">提交方案</view>
+  </view>
+</view>

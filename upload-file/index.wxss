@@ -1,0 +1,49 @@
+@import '/styles/utils.wxss';
+.file-item {
+  width: 685rpx;
+  height: 124rpx;
+  background: #f9fafb;
+  border: 2rpx solid #f0f0f0;
+  border-radius: 4rpx;
+  margin: 0 auto 16rpx;
+
+  display: flex;
+  align-items: center;
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.file-item .icon {
+  margin-right: 30rpx;
+  flex-shrink: 0;
+}
+.file-item .info {
+  max-width: 75%;
+}
+.file-item .filename {
+  font-size: 24rpx;
+  line-height: 1;
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+.file-item .size {
+  font-size: 20rpx;
+  line-height: 1;
+  color: #999999;
+}
+.file-item .icon {
+  width: 48rpx;
+  height: 60rpx;
+}
+.file-item .right-wrapper {
+  margin-left: auto;
+}
+
+.btn-preview {
+  margin-left: auto;
+  font-size: 24rpx;
+  color: var(--color-primary);
+  font-weight: 600;
+  flex-shrink: 0;
+}

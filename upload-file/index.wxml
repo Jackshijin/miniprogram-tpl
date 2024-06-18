@@ -1,0 +1,13 @@
+<view class="file-item">
+  <image src="https://static.chali.tech/icon_{{fileType}}.png" class="icon"></image>
+  <view class="info">
+    <view class="filename text-truncate">{{filename}}</view>
+    <view class="size">{{fileSize}}</view>
+  </view>
+  <view wx:if="{{showPreview}}" class="btn-preview" bind:tap="preview">
+    预览
+  </view>
+  <view wx:else class="right-wrapper" bind:tap="clickClose">
+    <van-icon name="cross" size="32rpx" color="#666666" />
+  </view>
+</view>

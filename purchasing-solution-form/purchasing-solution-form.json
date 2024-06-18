@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "提供解决方案",
+  "usingComponents": {
+    "upload-file": "../../components/upload-file/index"
+  }
+}
