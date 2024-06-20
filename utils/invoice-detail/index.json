@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "开票详情",
+  "usingComponents": {
+    "detail-head": "./components/detail-head",
+    "contact": "/components/contact"
+  }
+}

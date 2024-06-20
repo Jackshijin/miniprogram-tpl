@@ -1,0 +1,15 @@
+.cell-custom {
+  margin-top: 16rpx !important;
+}
+
+.block-center {
+  margin-top: 94rpx;
+}
+
+.field-label {
+  color: #666 !important;
+}
+
+.field-input {
+  color: #666 !important;
+}

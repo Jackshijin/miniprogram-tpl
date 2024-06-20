@@ -1,0 +1,139 @@
+.head {
+  width: 100%;
+  background: #D3A65E;
+}
+.head-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 272rpx;
+  padding: 0 90rpx;
+  font-family: PingFangSC-Semibold;
+}
+.status-text {
+  font-size: 44rpx;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 44rpx;
+  font-weight: 600;
+  margin-bottom: 18rpx;
+}
+.tips {
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 36rpx;
+}
+.tips-text {
+  color: #FFE9C6;
+  font-weight: 400;
+}
+
+.check-btn {
+  color: #FFFFFF;
+  font-weight: 600;
+  border-bottom: 1px solid #fff;
+}
+
+.invoice {
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-bottom: calc(100rpx + env(safe-area-inset-bottom));
+}
+
+.invoice .title {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #1B1B1B;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 40rpx;
+  font-weight: 600;
+}
+.invoice-content {
+  box-sizing: border-box;
+  padding: 40rpx 40rpx 0 40rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+._afterContent:after {
+  content: '';
+  flex: auto;
+}
+.invoice .content {
+  width: 320rpx;
+  height: 260rpx;
+  margin-bottom: 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.invoice-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  color: #1A1A1A;
+  letter-spacing: 0;
+  line-height: 32rpx;
+  font-weight: 400;
+  margin-bottom: 29rpx;
+}
+
+.invoice image {
+  width: 320rpx;
+  height: 200rpx;
+}
+.invoice-tips {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 320rpx;
+  height: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  background: #000000;
+  border-radius: 0px 0px 8rpx 8rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #FFFFFF;
+  line-height: 22rpx;
+  font-weight: 400;
+}
+
+.invoice .btn {
+  width: 100%;
+  position: fixed;
+  padding-top: 33rpx;
+  bottom: 0;
+  padding-bottom: calc(33rpx + env(safe-area-inset-bottom));
+  background: #FFFFFF;
+  font-size: 32rpx;
+  color: #666666;
+  text-align: center;
+  line-height: 32rpx;
+  font-weight: 400;
+}
+
+::-webkit-scrollbar {
+  display:none;
+  width:0;
+  height:0;
+  color:transparent;
+}
+
+.emptyWrapper {
+  height: 40vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+

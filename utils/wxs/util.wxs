@@ -1,0 +1,284 @@
+var getFloat = function (num, point) {
+  if (!num) {
+    return Number(0).toFixed(point);
+  }
+  return Number(num).toFixed(point);
+};
+var getPercent = function (num, all, point) {
+  if (all === 0) {
+    return 0;
+  }
+  return ((num / all) * 100 || 0).toFixed(point);
+};
+var getKg = function (num) {
+  //把g转化为kg单位
+  if (!num) return '0';
+  return Number(num) / 1000;
+};
+var getCover = function (covers) {
+  if (!!covers) {
+    return covers.toString().split(';')[0];
+  } else {
+    return '';
+  }
+};
+//不传-全部 0-开票中 1-换开票申请中 2-已申请
+var invoiceStatus = function (status) {
+  var out = '全部记录';
+  switch (parseInt(status)) {
+    case 2:
+      out = '已开票';
+      break;
+    case 1:
+      out = '换开申请中';
+      break;
+    case 0:
+      out = '开票中';
+      break;
+  }
+  return out;
+};
+/**
+ * 发票申请状态
+    0-预开票
+    1-待开票
+    2-换开票中
+    3-已开票
+    4-换开票成功
+*/
+var invoiceApplyStatus = function (status) {
+  var out = '';
+  switch (parseInt(status)) {
+    case 4:
+      out = '已开票(换开成功)'; //换开成功
+      break;
+    case 3:
+      out = '已开票';
+      break;
+    case 2:
+      out = '换开申请中';
+      break;
+    case 1:
+      out = '开票中'; //待开票
+      break;
+    case 0:
+      out = '开票中'; //预开票
+      break;
+  }
+  return out;
+};
+/**评审体系相关-s */
+/**
+ * 评审体系专家报名状态
+ * 专家报名状态
+1-未报名 
+2-审核中 
+3-审核通过 
+4-审核不通过 
+*/
+var expertStatus = function (status) {
+  var out = '';
+  switch (parseInt(status)) {
+    case 4:
+      out = '立即申请'; //换开成功
+      break;
+    case 3:
+      out = '';
+      break;
+    case 2:
+      out = '审核中';
+      break;
+    case 1:
+      out = '立即申请';
+      break;
+    case 0:
+      out = '立即申请';
+      break;
+  }
+  return out;
+};
+//评审专家等级分数
+
+var nextExpertScore = function (level) {
+  var out = 999999;
+  switch (parseInt(level)) {
+    case 1:
+      out = 1000;
+      break;
+    case 2:
+      out = 4000;
+      break;
+    case 3:
+      out = 9000;
+      break;
+    case 4:
+      out = 17000;
+      break;
+  }
+  return out;
+};
+var expertLevelStr = function (level) {
+  var out = '品茶新秀';
+  switch (parseInt(level)) {
+    case 2:
+      out = '品茶高手';
+      break;
+    case 3:
+      out = '品茶奇侠';
+      break;
+    case 4:
+      out = '品茶大师';
+      break;
+    case 5:
+      out = '品茶宗师';
+      break;
+  }
+  return out;
+};
+/**
+ * 
+ *  1-账户一年未活跃
+2-审评内容敷衍、错漏较多
+3-审评内容包含敏感词、违禁词
+4-非审评相关术语，胡编乱造
+5-未按时完成审评
+ * 
+ */
+var violationStr = function (level) {
+  var out = '持续1年未活跃，取消审评师资格';
+  switch (parseInt(level)) {
+    case 2:
+      out = '审评内容敷衍、错漏较多';
+      break;
+    case 3:
+      out = '审评内容包含恶意违规、违禁词语';
+      break;
+    case 4:
+      out = '非审评相关术语，胡编乱造';
+      break;
+    case 5:
+      out = '未按规定时间提交审评结果';
+      break;
+  }
+  return out;
+};
+var reviewModeStr = function (mode) {
+  var out = '平台邮寄';
+  switch (parseInt(mode)) {
+    case 2:
+      out = '现场审评';
+      break;
+  }
+  return out;
+};
+/**
+ *
+ * @param status 邮寄状态；1-未寄出；2-待签收；3-已签收
+ * @returns
+ */
+var reviewLogisticsStatusStr = function (status) {
+  var out = '未寄出';
+  switch (parseInt(status)) {
+    case 2:
+      out = '已寄出';
+      break;
+    case 3:
+      out = '已签收';
+      break;
+  }
+  return out;
+};
+var getStarStr = function (star) {
+  var out = '';
+  switch (parseInt(star)) {
+    case 1:
+      out = '不准确';
+      break;
+    case 2:
+      out = '不太准确';
+      break;
+    case 3:
+      out = '一般';
+      break;
+    case 4:
+      out = '较准确';
+      break;
+    case 5:
+      out = '准确';
+      break;
+  }
+  return out;
+};
+/**评审体系相关-e */
+/**
+ * 会员
+ */
+var vipScoreStr = function (type) {
+  var out = '拍卖成交';
+  switch (parseInt(type)) {
+    case 1:
+      out = '试饮成交';
+      break;
+    case 2:
+      out = '3个月无成交记录';
+      break;
+    case 3:
+      out = '4个月无成交记录';
+      break;
+    case 4:
+      out = '5个月无成交记录';
+      break;
+    case 5:
+      out = '竞拍违约';
+      break;
+    case 6:
+      out = '售后退款';
+      break;
+    case 7:
+      out = '一口价成交';
+      break;
+  }
+  return out;
+};
+/**提现 */
+var bankCardTypeStr = function (type) {
+  var out = '';
+  switch (type) {
+    case 'PUBLIC_CARD':
+      out = '对公卡';
+      break;
+    case 'DEBIT_CARD':
+      out = '借记卡';
+      break;
+    case 'CREDIT_CARD':
+      out = '贷记卡';
+      break;
+    case 'QUASI_CREDIT_CARD':
+      out = '准贷卡';
+      break;
+    case 'PASSBOOK':
+      out = '存折';
+      break;
+    case 'UNIT_SETTLE_CARD':
+      out = '单位结算卡';
+      break;
+  }
+  return out;
+};
+module.exports = {
+  getKg: getKg,
+  getFloat: getFloat,
+  getCover: getCover,
+  invoiceStatus: invoiceStatus,
+  invoiceApplyStatus: invoiceApplyStatus,
+  getPercent: getPercent,
+  expertStatus: expertStatus,
+  nextExpertScore: nextExpertScore,
+  expertLevelStr: expertLevelStr,
+  violationStr: violationStr,
+  reviewModeStr: reviewModeStr,
+  reviewLogisticsStatusStr: reviewLogisticsStatusStr,
+  getStarStr: getStarStr,
+  vipScoreStr: vipScoreStr,
+  bankCardTypeStr: bankCardTypeStr
+};

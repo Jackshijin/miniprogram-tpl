@@ -1,0 +1,46 @@
+<wxs src="/wxs/util.wxs" module="T" />
+<view class="page">
+  <detail-head invoices="{{detail.invoices}}" status="{{ status }}"></detail-head>
+  <view class="times">
+    <view class="invoice-detail">
+      开票详情
+    </view>
+    <view class="time">
+      <view class="time-t">合计开票金额</view>
+      <view class="amount-val">￥{{ T.getFloat(detail.invoiceAmount || '', 2) }}</view>
+    </view>
+    <view class="time">
+      <view class="time-t">提交开票时间</view>
+      <view class="time-val">{{ detail.createTime }}</view>
+    </view>
+    <view wx:if="{{ detail.invoiceTime }}" class="time">
+      <view class="time-t">开票时间</view>
+      <view class="time-val">{{ detail.invoiceTime }}</view>
+    </view>
+    <view wx:if="{{ detail.changeCreateTime }}" class="time">
+      <view class="time-t">申请换开时间</view>
+      <view class="time-val">{{ detail.changeCreateTime }}</view>
+    </view>
+    <view wx:if="{{ detail.changeInvoiceTime }}" class="time">
+      <view class="time-t">换开成功时间</view>
+      <view class="time-val">{{ detail.changeInvoiceTime }}</view>
+    </view>
+  </view>
+  <!-- <view bindtap="openContact" class="contact-btn">联系客服</view> -->
+
+  <view wx:if="{{status === 1 || status == 0}}" class="footer-btn">
+    <view class="edit-btn" bind:tap="changeInvoiceTitle" data-item="{{detail}}">
+      修改抬头
+    </view>
+    <view bindtap="openContact" class="edit-btn">联系客服</view>
+  </view>
+
+  <view wx:elif="{{status === 3 }}" class="footer-btn">
+    <view class="edit-btn" bind:tap="changeInvoiceTitle" data-item="{{detail}}">申请换开</view>
+    <view bindtap="openContact" class="edit-btn">联系客服</view>
+  </view>
+
+  <view wx:else bindtap="openContact" class="contact-btn">联系客服</view>
+
+  <contact id="contact"/>
+</view>

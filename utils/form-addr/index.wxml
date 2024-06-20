@@ -1,0 +1,65 @@
+<view>
+  <van-field label="收货人" model:value="{{ receiverName }}" maxlength="30" placeholder="请输入收件人姓名"></van-field>
+  <van-field
+    label="手机号码"
+    model:value="{{ phone }}"
+    maxlength="11"
+    type="number"
+    placeholder="请输入手机号码"
+  ></van-field>
+  <van-field
+    label="省市区"
+    value="{{ locationText }}"
+    disabled="true"
+    bind:click-input="showAddrDialog"
+    placeholder="请选择地址"
+    label-class="field-label"
+    input-class="{{ provinceName ? 'field-input' : '' }}"
+    is-link
+  ></van-field>
+  <van-field
+    label="详细地址"
+    model:value="{{ address }}"
+    type="textarea"
+    maxlength="35"
+    autosize
+    placeholder="请输入详细地址"
+  ></van-field>
+  <!-- <van-cell title="设为默认" custom-class="cell-custom">
+    <van-switch
+      checked="{{ isDefault }}"
+      bind:change="getValue"
+      data-type="1"
+      active-color="#d3a65e"
+      size="40rpx"
+    ></van-switch>
+  </van-cell> -->
+  <!-- prettier-ignore -->
+  <van-button
+    custom-style="width:650rpx"
+    custom-class="block-center"
+    type="primary"
+    size="normal"
+    round
+    block
+    bind:click="submit"
+    disabled="{{canISubmit}}"
+  >
+    {{ primaryKey ?  '保存' : '添加' }}
+  </van-button>
+
+  <van-popup
+    show="{{ isShowArea }}"
+    bind:click-overlay="hideAddrDialog"
+    position="bottom"
+    custom-style="height: 60%;"
+    round
+  >
+    <van-area
+      area-list="{{ areaList }}"
+      bind:cancel="hideAddrDialog"
+      bind:confirm="confirmArea"
+      title="请选择省市区"
+    ></van-area>
+  </van-popup>
+</view>
